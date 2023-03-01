@@ -1,7 +1,7 @@
 // Je récupère mon panier en storage
 let panier = JSON.parse(localStorage.getItem("myCart"));
 let totalQuantity = 0;
-console.log(panier);
+console.log(panier); //test
 // Chaque canapés du panier je récupère l'ID et je l'utilise pour faire un fetch. 
 
 if (panier == null) {
