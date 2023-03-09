@@ -229,34 +229,27 @@ function postForm() {
   let inputAddressName = document.querySelector("#address");
   let inputCityName = document.querySelector("#city");
   let inputEmail = document.querySelector("#email");
-  //let panier = JSON.parse(localStorage.getItem("myCart"));
+  let panier = JSON.parse(localStorage.getItem("myCart")); 
 
   myButtonSend.addEventListener("click", (e) => {
+    
+    e.preventDefault();
     if (
-      !inputEmail.value ||
-      !inputCityName.value ||
-      !inputAddressName.value ||
-      !inputLastName.value ||
-      !inputFirstName.value
+      (!inputEmail.value || !emailReg.test(inputEmail.value)) &&
+      (!inputCityName.value || !myRegex.test(inputCityName.value)) &&
+      (!inputAddressName.value || !addressRegExp.test(inputAddressName.value)) &&
+      (!inputLastName.value || !myRegex.test(inputLastName.value)) &&
+      (!inputFirstName.value || !myRegex.test(inputFirstName.value))
     ) {
-      alert("Merci de renseigner le formulaire en entier");
+      alert("Merci de bien renseigner le formulaire en entier");
       e.preventDefault();
-    } 
-    /*else if(
-    !myRegex.test(firstName.value) ||
-    !myRegex.test(lastName.value) ||
-    !addressRegExp.test(address.value) ||
-    !myRegex.test(city.value) ||
-    !emailReg.test(email.value)
-
-    ){
-    alert("Bien renseigner le formulaire")
-  } */
+    }
   else {
       let identite = [];
       for (let i = 0; i < panier.length; i++) {
         identite.push(panier[i].id);
-      }
+      };
+  
       const identiteCommande = {
         contact: {
           firstName: inputFirstName.value,
