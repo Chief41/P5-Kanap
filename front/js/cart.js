@@ -141,8 +141,7 @@ let addressRegExp = new RegExp(
   "^[0-9]{1,3}(?:(?:[,. ]){1}[-a-zA-Zàâäéèêëïîôöùûüç]+)+"
 );
 let emailReg = new RegExp(
-  "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$",
-  "g"
+  /^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$/i
 ); // Ce code signifie les carractères que j'ai le droit d'utiliser pour mon email
 
 const getForm = () => {
@@ -235,11 +234,11 @@ function postForm() {
     
     e.preventDefault();
     if (
-      (!inputEmail.value || !emailReg.test(inputEmail.value)) &&
-      (!inputCityName.value || !myRegex.test(inputCityName.value)) &&
-      (!inputAddressName.value || !addressRegExp.test(inputAddressName.value)) &&
-      (!inputLastName.value || !myRegex.test(inputLastName.value)) &&
-      (!inputFirstName.value || !myRegex.test(inputFirstName.value))
+      !emailReg.test(inputEmail.value)||
+      !myRegex.test(inputCityName.value)||
+      !addressRegExp.test(inputAddressName.value)||
+      !myRegex.test(inputLastName.value)||
+      !myRegex.test(inputFirstName.value)
     ) {
       alert("Merci de bien renseigner le formulaire en entier");
       e.preventDefault();
