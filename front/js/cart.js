@@ -43,7 +43,7 @@ if (panier == null) {
           imgDescription.classList.add("cart__item__content__description");
           myPanierDescription.appendChild(imgDescription);
           //imgDescription.textContent = data.description;
-          //console.log(data.description);
+          
 
           let panierTitle = document.createElement("h2");
           panierTitle.textContent = data.name;
@@ -94,8 +94,7 @@ if (panier == null) {
             console.log("modifier " + color + id);
           });
 
-          //let totalQty = document.querySelector('#totalQuantity');
-          //totalQty.textContent = totalQuantity;
+          
 
           let totalPrice = document.querySelector("#totalPrice");
           totalPrice.textContent =
@@ -152,7 +151,6 @@ const getForm = () => {
 
   const validFirstName = function (inputFirstName) {
     // Validation de firstName
-    // let myName = document.querySelector("#firstName");
     let firstNameErrorMsg = inputFirstName.nextElementSibling;
     if (myRegex.test(inputFirstName.value)) {
       firstNameErrorMsg.textContent = "";
@@ -166,7 +164,6 @@ const getForm = () => {
   });
 
   const validLastName = function (inputLastName) {
-    // let myLastName = document.querySelector("#lastName");
     let lastNameErrorMsg = inputLastName.nextElementSibling;
     if (myRegex.test(inputLastName.value)) {
       lastNameErrorMsg.textContent = "";
@@ -180,7 +177,6 @@ const getForm = () => {
   });
 
   const validAddressName = function (inputAddressName) {
-    //let myAddress = document.querySelector("#address");
     let addressErrorMsg = inputAddressName.nextElementSibling;
     if (addressRegExp.test(inputAddressName.value)) {
       addressErrorMsg.textContent = "";
@@ -194,7 +190,6 @@ const getForm = () => {
   });
 
   const validCityName = function (inputCityName) {
-    // let myCity = document.querySelector("#city");
     let cityErrorMsg = inputCityName.nextElementSibling;
     if (myRegex.test(inputCityName.value)) {
       cityErrorMsg.textContent = "";
