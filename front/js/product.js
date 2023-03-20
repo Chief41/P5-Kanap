@@ -21,7 +21,7 @@ fetch('http://localhost:3000/api/products/' + id)
 
         let myPrice = document.createElement('p');
         myPrice.textContent = data.price;
-        document.querySelector(".item__content__titlePrice").appendChild(myPrice); 
+        document.querySelector("#price").appendChild(myPrice); 
         
         let myDescription = document.createElement('p');
         myDescription.textContent = data.description;
