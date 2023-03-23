@@ -79,11 +79,16 @@ if (panier == null) {
           myInput.setAttribute("max", 100);
           myInput.setAttribute("value", panier[i].quantity);
 
+
           myInput.addEventListener("change", () => {
             let article = buttonDelete.closest("article");
             let id = article.dataset.id;
             let color = article.dataset.color;
             let panier = JSON.parse(localStorage.getItem("myCart"));
+            if(myInput.value <= 0 || myInput.value > 100)  {
+              alert('Quantité incorrect');
+              return myInput.value
+            }
             for (j = 0; j < panier.length; j++) {
               if (id == panier[j].id && color == panier[j].color) {
                 panier[j].quantity = myInput.value;
